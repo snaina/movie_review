@@ -1,0 +1,41 @@
+.bar {
+  font-size: 16px;
+  text-align: right;
+  margin-top: 10px;
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  
+}
+
+.navbar{
+  margin-bottom: 0px !important;
+}
+
+.releasedate {
+    color: #888;
+    font-size: 12px;
+    display: block;
+    margin: 2px 0;
+}
+
+.mr_listing_brd {
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0 16px;
+    overflow: hidden;
+    clear: both;
+}
+.mr_listing_left {
+    float: left;
+    max-width: 160px;
+    width: 25%;
+}
+.mr_listing_right {
+    float: right;
+    width: 73%;
+    font-size: 14px;
+    color: #444;
+    font-weight: 400;
+    line-height: 22px;
+    font-family: 'Roboto';
+}

@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Movies</h1>
+<% @movie.each do |movie| %>
+  <div class="row">
+    <div class="col-sm-6 col-md-2">
+    </div>
+    <div class="col-sm-6 col-md-6">
+      <div class="col-sm-6 col-md-4" >
+        <div class="thumbnail">
+          <%= image_tag movie.image.url(:medium)%>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-8">
+        <div class="thumbnail">
+        
+          <a pg="" href=""><%= movie.title %></a>
+          
+          <div class="caption">
+            <h3>
+              <span class="releasedate"><%= movie.release_year %>  |  <%= movie.actor %>, <%= movie.actress %></span>
+            </h3>
+            <div class="mrB10 clearfix">
+            <span class="txt_cast">Cast:</span>
+            <span class="casting"> <%= movie.descrption %></span>
+            
+            </div>
+
+            <p> 
+              <%= rating_for movie, "visual_effects", disable_after_rate: true %>
+            
+              <%= link_to 'Show', movie, class: "btn btn-primary", data: { turbolinks: true }   %>
+              <%= link_to 'Home', root_path, class: "btn btn-default" %>
+            <% if current_user.present? %>
+              <%= link_to 'Edit', edit_movie_path(movie), class: "btn btn-primary" %>
+              <%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-default"%>
+            <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+<% end %>
+<br>
+<%= link_to 'New Movie', new_movie_path  if current_user.present? %>
+<%= link_to "Get PDF", new_movie_path(format: :pdf) %>

@@ -1,0 +1,50 @@
+
+
+<%= form_for movie, html: { multipart: true } do |f| %>
+  <% if movie.errors.any? %>
+    <div id="">
+      <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+
+      <ul>
+      <% movie.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %></ul></div>
+      </ul>
+  
+  <% end %>
+  <%= f.hidden_field :user_id, :value => @movie.user_id %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :release_year %>
+    <%= f.number_field :release_year %>
+  </div>
+
+  <div class="field">
+    <%= f.label :actor %>
+    <%= f.text_area :actor %>
+  </div>
+
+  <div class="field">
+    <%= f.label :actress %>
+    <%= f.text_area :actress %>
+  </div>
+
+  <div class="field">
+    <%= f.label :descrption %>
+    <%= f.text_area :descrption %>
+  </div>
+
+ 
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
